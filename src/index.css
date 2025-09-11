@@ -100,24 +100,24 @@
   /* Hero Button Styles */
   .btn-hero {
     @apply bg-primary text-primary-foreground hover:bg-primary/90 
-           shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-glow)]
-           transition-all duration-[var(--transition-smooth)]
-           font-semibold text-lg px-8 py-4 rounded-[var(--radius)]
+           shadow-md hover:shadow-lg
+           transition-all duration-300
+           font-semibold text-lg px-8 py-4 rounded-xl
            border-2 border-transparent hover:scale-105
            active:scale-95;
   }
   
   .btn-secondary {
     @apply bg-secondary text-secondary-foreground hover:bg-secondary/90
-           shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)]
-           transition-all duration-[var(--transition-smooth)]
-           font-semibold px-6 py-3 rounded-[var(--radius)];
+           shadow-md hover:shadow-lg
+           transition-all duration-300
+           font-semibold px-6 py-3 rounded-xl;
   }
   
   /* Card Styles */
   .card-hover {
-    @apply transition-all duration-[var(--transition-smooth)]
-           hover:shadow-[var(--shadow-lg)] hover:-translate-y-1;
+    @apply transition-all duration-300
+           hover:shadow-lg hover:-translate-y-1;
   }
   
   /* Gradient Backgrounds */

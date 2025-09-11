@@ -6,7 +6,8 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    { href: '#accueil', label: 'Accueil' },
+    { href: '/', label: 'Accueil' },
+    { href: '/actualites', label: 'Actualités' },
     { href: '#watoto-radio', label: 'Watoto Radio' },
     { href: '#watoto-on-air', label: 'Watoto On Air' },
     { href: '#batoto-hange', label: 'Batoto Hange' },
