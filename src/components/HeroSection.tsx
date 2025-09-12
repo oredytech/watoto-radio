@@ -7,7 +7,7 @@ export default function HeroSection() {
       id="accueil" 
       className="min-h-screen flex items-center justify-center relative"
       style={{
-        backgroundImage: `url(/lovable-uploads/30d5bbdd-adf0-49a9-846c-26c896ed1be2.png)`,
+        backgroundImage: `url(/lovable-uploads/24d18f7c-7c9b-4609-9952-d41bf3cd91e2.png)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -30,11 +30,10 @@ export default function HeroSection() {
 
           {/* Bouton Play */}
           <Button 
-            size="icon-lg" 
-            className="bg-destructive hover:bg-destructive/90 rounded-full w-20 h-20 mt-8"
+            className="bg-destructive hover:bg-destructive/90 rounded-full w-32 h-32 mt-8 shadow-2xl"
           >
             <svg
-              className="h-10 w-10 text-white ml-1"
+              className="h-16 w-16 text-white ml-1"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
