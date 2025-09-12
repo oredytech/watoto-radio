@@ -64,16 +64,27 @@ export default function Header() {
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t border-white/20">
             <div className="flex flex-col space-y-4">
-              {menuItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="text-white hover:text-primary transition-colors font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
+            {menuItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-white hover:text-primary transition-colors font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+            
+            {/* Boutons mobile */}
+            <div className="flex items-center space-x-4 pt-4">
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                <Search className="h-5 w-5" />
+              </Button>
+              
+              <Button className="bg-destructive hover:bg-destructive/90 text-white">
+                En direct
+              </Button>
+            </div>
             </div>
           </nav>
         )}
