@@ -17,8 +17,18 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
+          {/* Mobile Menu Button - à gauche */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden text-white hover:bg-white/10"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X /> : <Menu />}
+          </Button>
+
+          {/* Logo - centré sur mobile, à gauche sur desktop */}
+          <div className="flex items-center space-x-2 md:ml-0 ml-auto md:mr-auto mr-0">
             <img 
               src="/lovable-uploads/8b410cfb-26bf-40c2-b8df-8769e55092ec.png" 
               alt="Watoto Radio Logo" 
@@ -26,17 +36,24 @@ export default function Header() {
             />
           </div>
 
+          {/* Mobile: Icône recherche + En direct - à droite */}
+          <div className="flex items-center space-x-2 md:hidden">
+            <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+              <Search className="h-5 w-5" />
+            </Button>
+            <Button variant="ghost" className="text-white hover:bg-white/10 text-sm px-3">
+              En direct
+            </Button>
+          </div>
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {menuItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-white hover:text-primary transition-colors font-medium"
-              >
-                {item.label}
-              </a>
-            ))}
+            <a href="#" className="text-white hover:text-primary transition-colors font-medium">
+              Podcast
+            </a>
+            <a href="#" className="text-white hover:text-primary transition-colors font-medium">
+              Nos campagnes
+            </a>
             
             {/* Icône de recherche */}
             <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
@@ -48,16 +65,6 @@ export default function Header() {
               En direct
             </Button>
           </nav>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden text-white hover:bg-white/10"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-          </Button>
         </div>
 
         {/* Mobile Navigation */}
@@ -74,17 +81,6 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
-            
-            {/* Boutons mobile */}
-            <div className="flex items-center space-x-4 pt-4">
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
-                <Search className="h-5 w-5" />
-              </Button>
-              
-              <Button className="bg-destructive hover:bg-destructive/90 text-white">
-                En direct
-              </Button>
-            </div>
             </div>
           </nav>
         )}
