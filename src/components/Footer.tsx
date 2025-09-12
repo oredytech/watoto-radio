@@ -121,9 +121,15 @@ export default function Footer() {
             © 2025 Watoto Radio. Tous droits réservés.
           </p>
           <div className="flex items-center space-x-1 text-sm text-background/80">
-            <span>Fait avec</span>
-            <Heart className="h-4 w-4 fill-current text-secondary" />
-            <span>pour les enfants du Congo</span>
+            <span>Fièrement conçu par</span>
+            <a 
+              href="https://oredytech.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="font-semibold hover:text-background transition-colors underline"
+            >
+              Oredy TECHNOLOGIES
+            </a>
           </div>
         </div>
       </div>
