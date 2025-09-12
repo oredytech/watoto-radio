@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -8,10 +8,8 @@ export default function Header() {
   const menuItems = [
     { href: '/', label: 'Accueil' },
     { href: '/actualites', label: 'Actualités' },
-    { href: '#watoto-radio', label: 'Watoto Radio' },
-    { href: '#watoto-on-air', label: 'Watoto On Air' },
-    { href: '#batoto-hange', label: 'Batoto Hange' },
-    { href: '#green-world', label: 'Green World' },
+    { href: '#podcast', label: 'Podcast' },
+    { href: '#nos-campagnes', label: 'Nos campagnes' },
     { href: '#apropos', label: 'À propos' },
   ];
 
@@ -39,6 +37,16 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
+            
+            {/* Icône de recherche */}
+            <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+              <Search className="h-5 w-5" />
+            </Button>
+            
+            {/* Bouton En direct */}
+            <Button className="bg-destructive hover:bg-destructive/90 text-white">
+              En direct
+            </Button>
           </nav>
 
           {/* Mobile Menu Button */}
