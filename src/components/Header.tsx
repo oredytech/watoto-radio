@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Search } from 'lucide-react';
+import { useAudio } from '@/contexts/AudioContext';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { play } = useAudio();
 
   const menuItems = [
     { href: '/', label: 'Accueil' },
@@ -41,14 +43,14 @@ export default function Header() {
             <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
               <Search className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" className="text-white hover:bg-white/10 text-sm px-3">
+            <Button variant="ghost" className="text-white hover:bg-white/10 text-sm px-3" onClick={play}>
               En direct
             </Button>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {menuItems.slice(1).map((item) => (
+            {menuItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
@@ -64,7 +66,7 @@ export default function Header() {
             </Button>
             
             {/* Bouton En direct */}
-            <Button className="bg-destructive hover:bg-destructive/90 text-white">
+            <Button className="bg-destructive hover:bg-destructive/90 text-white" onClick={play}>
               En direct
             </Button>
           </nav>

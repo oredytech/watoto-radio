@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { useAudio } from '@/contexts/AudioContext';
 
 export default function HeroSection() {
+  const { play } = useAudio();
   return (
     <section 
       id="accueil" 
@@ -30,10 +32,12 @@ export default function HeroSection() {
 
           {/* Bouton Play */}
           <Button 
-            className="bg-destructive hover:bg-destructive/90 rounded-full w-32 h-32 mt-8 shadow-2xl"
+            variant="ghost"
+            onClick={play}
+            className="rounded-full w-32 h-32 mt-8 shadow-2xl hover:bg-white/10 transition-all duration-300 hover:scale-105"
           >
             <svg
-              className="h-16 w-16 text-white ml-1"
+              className="h-20 w-20 text-white ml-2"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
