@@ -8,9 +8,9 @@ export default function Header() {
   const menuItems = [
     { href: '/', label: 'Accueil' },
     { href: '/actualites', label: 'Actualités' },
-    { href: '#podcast', label: 'Podcast' },
-    { href: '#nos-campagnes', label: 'Nos campagnes' },
-    { href: '#apropos', label: 'À propos' },
+    { href: '/podcast', label: 'Podcast' },
+    { href: '/nos-campagnes', label: 'Nos campagnes' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   return (
@@ -48,12 +48,15 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-white hover:text-primary transition-colors font-medium">
-              Podcast
-            </a>
-            <a href="#" className="text-white hover:text-primary transition-colors font-medium">
-              Nos campagnes
-            </a>
+            {menuItems.slice(1).map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-white hover:text-primary transition-colors font-medium"
+              >
+                {item.label}
+              </a>
+            ))}
             
             {/* Icône de recherche */}
             <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
