@@ -37,7 +37,7 @@ export default function HeroSection() {
             className="rounded-full w-32 h-32 mt-8 shadow-2xl hover:bg-white/10 transition-all duration-300 hover:scale-105"
           >
             <svg
-              className="h-20 w-20 text-white ml-2"
+              className="h-30 w-30 text-white ml-2"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
