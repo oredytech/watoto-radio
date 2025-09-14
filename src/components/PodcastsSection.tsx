@@ -43,6 +43,18 @@ const PodcastsSection = () => {
           </p>
         </div>
 
+        {/* Iframe Podcast Player */}
+        <div className="mb-8">
+          <iframe 
+            src="https://www.listennotes.com/podcasts/tetea-mazingira-swahili-podcast-makasi-CbFK5kHvMqy/embed/"
+            height="600px"
+            width="100%"
+            style={{ border: 'none', minWidth: '100%' }}
+            loading="lazy"
+            title="Podcast Player"
+          />
+        </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {podcasts.map((podcast) => (
             <Card key={podcast.id} className="hover:shadow-lg transition-shadow duration-300">

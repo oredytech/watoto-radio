@@ -109,6 +109,23 @@ const Podcast = () => {
           </div>
         </section>
 
+        {/* Podcast Player Section */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-8">Écouter nos Podcasts</h2>
+            <div className="max-w-4xl mx-auto">
+              <iframe 
+                src="https://www.listennotes.com/podcasts/tetea-mazingira-swahili-podcast-makasi-CbFK5kHvMqy/embed/"
+                height="600px"
+                width="100%"
+                style={{ border: 'none', minWidth: '100%' }}
+                loading="lazy"
+                title="Podcast Player"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Episodes Section */}
         <section className="py-16">
           <div className="container mx-auto px-4">
