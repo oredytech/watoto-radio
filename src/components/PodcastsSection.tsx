@@ -55,43 +55,6 @@ const PodcastsSection = () => {
           />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {podcasts.map((podcast) => (
-            <Card key={podcast.id} className="hover:shadow-lg transition-shadow duration-300">
-              <CardHeader className="p-0">
-                <div className="relative">
-                  <img 
-                    src={podcast.image} 
-                    alt={podcast.title}
-                    className="w-full h-48 object-cover rounded-t-lg"
-                  />
-                  <Button
-                    size="icon"
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full w-16 h-16 bg-primary/90 hover:bg-primary"
-                  >
-                    <Play className="h-6 w-6 text-primary-foreground" />
-                  </Button>
-                </div>
-              </CardHeader>
-              <CardContent className="p-6">
-                <CardTitle className="mb-2 text-xl">{podcast.title}</CardTitle>
-                <CardDescription className="mb-4 text-muted-foreground">
-                  {podcast.description}
-                </CardDescription>
-                <div className="flex items-center justify-between text-sm text-muted-foreground">
-                  <div className="flex items-center space-x-1">
-                    <Clock className="h-4 w-4" />
-                    <span>{podcast.duration}</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <Calendar className="h-4 w-4" />
-                    <span>{podcast.date}</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
 
         <div className="text-center">
           <Button variant="outline" size="lg">
