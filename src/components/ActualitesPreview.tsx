@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, Calendar } from 'lucide-react';
@@ -144,10 +145,10 @@ export default function ActualitesPreview() {
                     className="p-0 h-auto text-primary hover:text-primary/80"
                     asChild
                   >
-                    <a href={`/actualites/${post.id}`} className="inline-flex items-center">
+                    <Link to={`/article/${post.id}`} className="inline-flex items-center">
                       Lire la suite
                       <ArrowRight className="h-4 w-4 ml-2" />
-                    </a>
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -158,10 +159,10 @@ export default function ActualitesPreview() {
         {/* Bouton voir toutes les actualités */}
         <div className="text-center">
           <Button asChild size="lg">
-            <a href="/actualites">
+            <Link to="/actualites">
               Voir toutes les actualités
               <ArrowRight className="h-5 w-5 ml-2" />
-            </a>
+            </Link>
           </Button>
         </div>
       </div>

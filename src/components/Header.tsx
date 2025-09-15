@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Search } from 'lucide-react';
 import { useAudio } from '@/contexts/AudioContext';
@@ -51,13 +52,13 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
+                to={item.href}
                 className="text-white hover:text-primary transition-colors font-medium"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             
             {/* Icône de recherche */}
@@ -77,14 +78,14 @@ export default function Header() {
           <nav className="md:hidden py-4 border-t border-white/20">
             <div className="flex flex-col space-y-4">
             {menuItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
+                to={item.href}
                 className="text-white hover:text-primary transition-colors font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             </div>
           </nav>
