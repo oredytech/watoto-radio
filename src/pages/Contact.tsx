@@ -87,7 +87,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "contact@watotoradio.info\ninfo@watotoradio.info",
+      content: "info@watotoradio.info",
       color: "text-purple-600"
     },
     {

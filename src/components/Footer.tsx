@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Facebook, Youtube, Mail, Heart } from 'lucide-react';
+import { Facebook, Youtube, Instagram, Heart } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -20,7 +20,7 @@ export default function Footer() {
               La première plateforme radiophonique au Congo dédiée à l'expression des enfants.
             </p>
             <p className="text-xs text-background/60">
-              Un programme de la Fondation Miel-Fondal
+              Un programme de la <a href="https://mielfondal.org" target="_blank" rel="noopener noreferrer" className="underline hover:text-background transition-colors">Fondation Miel-Fondal</a>
             </p>
           </div>
 
@@ -86,12 +86,12 @@ export default function Footer() {
                 asChild
               >
                 <a 
-                  href="https://mytuner-radio.com/fr/radio/watoto-radio-482174/" 
+                  href="https://www.instagram.com/watotoradio/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  aria-label="Écouter en ligne"
+                  aria-label="Instagram"
                 >
-                  <Mail className="h-5 w-5" />
+                  <Instagram className="h-5 w-5" />
                 </a>
               </Button>
             </div>

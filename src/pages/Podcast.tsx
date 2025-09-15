@@ -114,14 +114,19 @@ const Podcast = () => {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-8">Écouter nos Podcasts</h2>
             <div className="max-w-4xl mx-auto">
-              <iframe 
-                src="https://www.listennotes.com/podcasts/tetea-mazingira-swahili-podcast-makasi-CbFK5kHvMqy/embed/"
-                height="600px"
-                width="100%"
-                style={{ border: 'none', minWidth: '100%' }}
-                loading="lazy"
-                title="Podcast Player"
-              />
+              <div className="flex justify-center">
+                <iframe 
+                  width="560" 
+                  height="315" 
+                  src="https://www.youtube.com/embed/videoseries?si=90haLNWf02hnhYx8&amp;list=PLfzMMQt-j2N7c44eqgI-hMVQiE42QVNb7" 
+                  title="YouTube video player" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerPolicy="strict-origin-when-cross-origin" 
+                  allowFullScreen
+                  className="max-w-full"
+                />
+              </div>
             </div>
           </div>
         </section>
