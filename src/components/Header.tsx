@@ -41,8 +41,10 @@ export default function Header() {
 
           {/* Mobile: Icône recherche + En direct - à droite */}
           <div className="flex items-center space-x-2 md:hidden">
-            <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
-              <Search className="h-5 w-5" />
+            <Button variant="ghost" size="icon" className="text-white hover:bg-white/10" asChild>
+              <Link to="/search">
+                <Search className="h-5 w-5" />
+              </Link>
             </Button>
             <Button variant="ghost" className="text-white hover:bg-white/10 text-sm px-3" onClick={play}>
               En direct
@@ -62,8 +64,10 @@ export default function Header() {
             ))}
             
             {/* Icône de recherche */}
-            <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
-              <Search className="h-5 w-5" />
+            <Button variant="ghost" size="icon" className="text-white hover:bg-white/10" asChild>
+              <Link to="/search">
+                <Search className="h-5 w-5" />
+              </Link>
             </Button>
             
             {/* Bouton En direct */}

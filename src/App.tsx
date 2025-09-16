@@ -11,6 +11,7 @@ import Article from "./pages/Article";
 import Podcast from "./pages/Podcast";
 import Campaigns from "./pages/Campaigns";
 import Contact from "./pages/Contact";
+import Search from "./pages/Search";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/podcast" element={<Podcast />} />
             <Route path="/nos-campagnes" element={<Campaigns />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/search" element={<Search />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

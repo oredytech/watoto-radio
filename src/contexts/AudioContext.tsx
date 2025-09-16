@@ -69,18 +69,20 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     };
   }, [isPlaying]);
 
-  const play = () => {
+  const play = async () => {
     if (audioRef.current) {
       setIsLoading(true);
-      audioRef.current.play()
-        .then(() => {
-          setIsPlaying(true);
-          setIsLoading(false);
-        })
-        .catch(() => {
-          setIsPlaying(false);
-          setIsLoading(false);
-        });
+      try {
+        // Force reload the audio source to ensure fresh stream
+        audioRef.current.load();
+        await audioRef.current.play();
+        setIsPlaying(true);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Erreur lors de la lecture de la radio:', error);
+        setIsPlaying(false);
+        setIsLoading(false);
+      }
     }
   };
 

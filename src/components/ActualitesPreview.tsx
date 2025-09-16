@@ -6,6 +6,7 @@ import { ArrowRight, Calendar } from 'lucide-react';
 
 interface WordPressPost {
   id: number;
+  slug: string;
   title: {
     rendered: string;
   };
@@ -145,7 +146,7 @@ export default function ActualitesPreview() {
                     className="p-0 h-auto text-primary hover:text-primary/80"
                     asChild
                   >
-                    <Link to={`/article/${post.id}`} className="inline-flex items-center">
+                    <Link to={`/article/${post.slug}`} className="inline-flex items-center">
                       Lire la suite
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Link>

@@ -34,6 +34,14 @@ export default function GlobalAudioPlayer() {
         </div>
 
         <div className="flex items-center space-x-2">
+          {isPlaying && (
+            <div className="flex items-center space-x-1">
+              <div className="w-1 h-3 bg-primary-foreground rounded-full animate-pulse"></div>
+              <div className="w-1 h-4 bg-primary-foreground rounded-full animate-pulse" style={{ animationDelay: '0.1s' }}></div>
+              <div className="w-1 h-2 bg-primary-foreground rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+              <div className="w-1 h-4 bg-primary-foreground rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+            </div>
+          )}
           <Volume2 className="h-3 w-3" />
           <div className="w-12 h-1 bg-primary-foreground/20 rounded-full">
             <div className="w-3/4 h-full bg-primary-foreground rounded-full"></div>
