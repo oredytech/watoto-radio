@@ -4,6 +4,7 @@ import HeroSection from '@/components/HeroSection';
 import ActualitesPreview from '@/components/ActualitesPreview';
 import PodcastsSection from '@/components/PodcastsSection';
 import CampaignsSection from '@/components/CampaignsSection';
+import CharteEditoriale from '@/components/CharteEditoriale';
 import NewsletterSubscription from '@/components/NewsletterSubscription';
 import Footer from '@/components/Footer';
 
@@ -16,6 +17,7 @@ const Index = () => {
         <ActualitesPreview />
         <PodcastsSection />
         <CampaignsSection />
+        <CharteEditoriale />
         <NewsletterSubscription />
       </main>
       <Footer />
