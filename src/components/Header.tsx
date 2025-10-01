@@ -13,6 +13,7 @@ export default function Header() {
     { href: '/actualites', label: 'Actualités' },
     { href: '/podcast', label: 'Podcast' },
     { href: '/nos-campagnes', label: 'Nos campagnes' },
+    { href: '/partenaires', label: 'Nos partenaires' },
     { href: '/contact', label: 'Contact' },
   ];
 

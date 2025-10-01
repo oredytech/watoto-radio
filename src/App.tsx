@@ -12,6 +12,9 @@ import Podcast from "./pages/Podcast";
 import Campaigns from "./pages/Campaigns";
 import Contact from "./pages/Contact";
 import Search from "./pages/Search";
+import Partners from "./pages/Partners";
+import NationalPartners from "./pages/NationalPartners";
+import InternationalPartners from "./pages/InternationalPartners";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +32,9 @@ const App = () => (
             <Route path="/article/:slug" element={<Article />} />
             <Route path="/podcast" element={<Podcast />} />
             <Route path="/nos-campagnes" element={<Campaigns />} />
+            <Route path="/partenaires" element={<Partners />} />
+            <Route path="/partenaires/nationaux" element={<NationalPartners />} />
+            <Route path="/partenaires/internationaux" element={<InternationalPartners />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/search" element={<Search />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
