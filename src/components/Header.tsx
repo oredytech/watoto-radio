@@ -6,7 +6,7 @@ import { useAudio } from '@/contexts/AudioContext';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const { play } = useAudio();
+  const { togglePlay } = useAudio();
 
   const menuItems = [
     { href: '/', label: 'Accueil' },
@@ -50,7 +50,7 @@ export default function Header() {
             <Button 
               variant="ghost" 
               className="text-white hover:bg-white/10 text-sm px-2 md:px-3" 
-              onClick={play}
+              onClick={togglePlay}
             >
               <span className="hidden sm:inline">En direct</span>
               <span className="sm:hidden">Direct</span>
@@ -77,7 +77,7 @@ export default function Header() {
             </Button>
             
             {/* Bouton En direct */}
-            <Button className="bg-destructive hover:bg-destructive/90 text-white" onClick={play}>
+            <Button className="bg-destructive hover:bg-destructive/90 text-white" onClick={togglePlay}>
               En direct
             </Button>
           </nav>
