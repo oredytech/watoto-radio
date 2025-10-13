@@ -75,13 +75,13 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Adresse",
-      content: "123 Avenue de la Paix\nKinshasa, République Démocratique du Congo",
+      content: "Goma, Nord-Kivu, République Démocratique du Congo",
       color: "text-blue-600"
     },
     {
       icon: Phone,
       title: "Téléphone",
-      content: "+243 XX XXX XXXX\n+243 XX XXX XXXX",
+      content: "+243 840 349 640",
       color: "text-green-600"
     },
     {
@@ -315,7 +315,7 @@ const Contact = () => {
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold mb-4">Notre localisation</h2>
               <p className="text-muted-foreground">
-                Venez nous rendre visite dans nos bureaux à Kinshasa
+                Venez nous rendre visite dans nos bureaux à Goma
               </p>
             </div>
             
@@ -324,7 +324,7 @@ const Contact = () => {
               <div className="text-center text-muted-foreground">
                 <MapPin className="h-12 w-12 mx-auto mb-2" />
                 <p>Carte interactive à venir</p>
-                <p className="text-sm">Kinshasa, République Démocratique du Congo</p>
+                <p className="text-sm">Goma, Nord-Kivu, République Démocratique du Congo</p>
               </div>
             </div>
           </div>

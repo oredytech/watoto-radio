@@ -43,17 +43,11 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     audio.addEventListener('ended', handleEnded);
     audio.addEventListener('error', handleError);
 
-    // Listen for podcast play events to pause radio
-    const handlePodcastPlay = () => {
-      if (isPlaying) {
-        pauseForPodcast();
-      }
-    };
-
     // Listen for messages from podcast iframe
     const handleMessage = (event: MessageEvent) => {
       if (event.data && (event.data.type === 'play' || event.data.action === 'play')) {
-        handlePodcastPlay();
+        audio.pause();
+        setIsPlaying(false);
       }
     };
 
@@ -67,7 +61,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       window.removeEventListener('message', handleMessage);
       audio.pause();
     };
-  }, [isPlaying]);
+  }, []);
 
   const play = async () => {
     if (audioRef.current) {
