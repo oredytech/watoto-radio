@@ -14,6 +14,7 @@ export default function Header() {
     { href: '/podcast', label: 'Podcast' },
     { href: '/nos-campagnes', label: 'Nos campagnes' },
     { href: '/partenaires', label: 'Nos partenaires' },
+    { href: '/fondateur', label: 'Le Fondateur' },
     { href: '/contact', label: 'Contact' },
   ];
 

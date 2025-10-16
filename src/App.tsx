@@ -15,6 +15,7 @@ import Search from "./pages/Search";
 import Partners from "./pages/Partners";
 import NationalPartners from "./pages/NationalPartners";
 import InternationalPartners from "./pages/InternationalPartners";
+import Fondateur from "./pages/Fondateur";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/partenaires" element={<Partners />} />
             <Route path="/partenaires/nationaux" element={<NationalPartners />} />
             <Route path="/partenaires/internationaux" element={<InternationalPartners />} />
+            <Route path="/fondateur" element={<Fondateur />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/search" element={<Search />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
