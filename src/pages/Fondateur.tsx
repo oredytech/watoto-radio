@@ -15,14 +15,14 @@ const Fondateur = () => {
         <section className="py-16 bg-gradient-to-br from-primary/10 via-background to-background">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-              <div className="order-2 md:order-1">
+              <div className="order-1 md:order-1 text-center md:text-left">
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
                   Daniel Makasi
                 </h1>
                 <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light">
                   La Voix qui Agit pour le Climat et les Enfants en RDC
                 </p>
-                <div className="flex gap-4">
+                <div className="flex gap-4 justify-center md:justify-start">
                   <a 
                     href="https://www.youtube.com/@danielmakasi" 
                     target="_blank" 
@@ -49,7 +49,7 @@ const Fondateur = () => {
                   </a>
                 </div>
               </div>
-              <div className="order-1 md:order-2 flex justify-center">
+              <div className="order-2 md:order-2 flex justify-center">
                 <img 
                   src={danielMakasiPhoto} 
                   alt="Daniel Makasi"
@@ -73,7 +73,7 @@ const Fondateur = () => {
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
-              🎓 Qualifications et Expérience Professionnelle
+              Qualifications et Expérience Professionnelle
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -115,7 +115,7 @@ const Fondateur = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
-              💡 Initiatives Clés de la Fondation Miel-Fondal
+              Initiatives Clés de la Fondation Miel-Fondal
             </h2>
             <p className="text-center text-lg mb-12 max-w-4xl mx-auto text-muted-foreground">
               Daniel Makasi est le <strong className="text-foreground">fondateur</strong> de la <strong className="text-foreground">Fondation Miel-Fondal</strong>, l'ONG qui porte l'ensemble de ses projets sociaux, éducatifs et médiatiques visant à renforcer la société civile à Goma.
@@ -207,7 +207,7 @@ const Fondateur = () => {
             <div className="max-w-4xl mx-auto text-center">
               <Award className="w-16 h-16 text-primary mx-auto mb-6" />
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                🏆 Distinction en Vidéo
+                Distinction en Vidéo
               </h2>
               <Card className="border-primary/20">
                 <CardContent className="pt-6">
