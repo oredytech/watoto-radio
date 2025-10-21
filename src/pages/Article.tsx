@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, Calendar, Clock, User, Share2, Eye } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { formatArticleContent } from '@/lib/formatArticleContent';
 
 interface WordPressPost {
   id: number;
@@ -118,6 +119,11 @@ export default function Article() {
       navigator.clipboard.writeText(window.location.href);
     }
   };
+
+  // Formater le contenu de l'article pour une meilleure lisibilité
+  const formattedContent = useMemo(() => {
+    return post ? formatArticleContent(post.content.rendered) : '';
+  }, [post]);
 
   if (loading) {
     return (
@@ -239,7 +245,7 @@ export default function Article() {
           {/* Article Body */}
           <div 
             className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-p:mb-6 prose-a:text-primary prose-strong:text-foreground prose-blockquote:border-primary prose-blockquote:text-muted-foreground prose-li:text-muted-foreground prose-ul:mb-6 prose-ol:mb-6"
-            dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+            dangerouslySetInnerHTML={{ __html: formattedContent }}
           />
 
           {/* Author Info */}
