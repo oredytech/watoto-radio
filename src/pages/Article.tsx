@@ -238,7 +238,7 @@ export default function Article() {
 
           {/* Article Body */}
           <div 
-            className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-blockquote:border-primary prose-blockquote:text-muted-foreground"
+            className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-p:mb-6 prose-a:text-primary prose-strong:text-foreground prose-blockquote:border-primary prose-blockquote:text-muted-foreground prose-li:text-muted-foreground prose-ul:mb-6 prose-ol:mb-6"
             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
           />
 
