@@ -30,7 +30,7 @@ export default function HeroSection() {
 
           {/* Sous-titre */}
           <p className="text-xl md:text-2xl text-white text-center max-w-3xl">
-            Expression libre et éducatif pour les enfants
+            Expression libre et éducative pour les enfants
           </p>
 
           {/* Boutons d'action */}
