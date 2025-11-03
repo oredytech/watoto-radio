@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AudioProvider } from "@/contexts/AudioContext";
 import GlobalAudioPlayer from "@/components/GlobalAudioPlayer";
+import ChatBot from "@/components/ChatBot";
 import Index from "./pages/Index";
 import Actualites from "./pages/Actualites";
 import Article from "./pages/Article";
@@ -43,6 +44,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           <GlobalAudioPlayer />
+          <ChatBot />
         </BrowserRouter>
       </AudioProvider>
     </TooltipProvider>
