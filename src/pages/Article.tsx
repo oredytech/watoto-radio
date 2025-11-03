@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowLeft, Calendar, Clock, User, Share2, Eye } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, Share2, Eye, Facebook, Twitter, Linkedin, Mail, Link as LinkIcon } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { formatArticleContent } from '@/lib/formatArticleContent';
@@ -109,17 +109,29 @@ export default function Article() {
     return tmp.textContent || tmp.innerText || '';
   };
 
-  const shareArticle = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: post?.title.rendered,
-        url: window.location.href,
-      });
-    } else {
-      navigator.clipboard.writeText(window.location.href);
+  const buildShareUrl = () => {
+    try {
+      const url = new URL(window.location.href);
+      url.protocol = 'https:';
+      url.hostname = 'watotoradio.info';
+      return url.toString();
+    } catch {
+      return `https://watotoradio.info${window.location.pathname}`;
     }
   };
 
+  const shareArticle = () => {
+    const url = buildShareUrl();
+    const title = stripHtmlTags(post?.title.rendered || 'Watoto Radio');
+    if (navigator.share) {
+      navigator.share({
+        title,
+        url,
+      });
+    } else {
+      navigator.clipboard.writeText(url);
+    }
+  };
   // Formater le contenu de l'article pour une meilleure lisibilité
   const formattedContent = useMemo(() => {
     return post ? formatArticleContent(post.content.rendered) : '';
@@ -243,10 +255,75 @@ export default function Article() {
           )}
 
           {/* Article Body */}
-          <div 
-            className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-p:mb-6 prose-a:text-primary prose-strong:text-foreground prose-blockquote:border-primary prose-blockquote:text-muted-foreground prose-li:text-muted-foreground prose-ul:mb-6 prose-ol:mb-6"
+          <div
+            className="article-content"
             dangerouslySetInnerHTML={{ __html: formattedContent }}
           />
+
+          {/* Share Buttons */}
+          <section className="mt-10 pt-6 border-t">
+            <h3 className="text-sm font-semibold text-muted-foreground mb-3">
+              Partager cet article
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              <Button variant="outline" size="sm" asChild>
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(buildShareUrl())}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Partager sur Facebook"
+                >
+                  <Facebook className="mr-2 h-4 w-4" />
+                  Facebook
+                </a>
+              </Button>
+              <Button variant="outline" size="sm" asChild>
+                <a
+                  href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(buildShareUrl())}&text=${encodeURIComponent(stripHtmlTags(post.title.rendered))}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Partager sur X"
+                >
+                  <Twitter className="mr-2 h-4 w-4" />
+                  X
+                </a>
+              </Button>
+              <Button variant="outline" size="sm" asChild>
+                <a
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(buildShareUrl())}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Partager sur LinkedIn"
+                >
+                  <Linkedin className="mr-2 h-4 w-4" />
+                  LinkedIn
+                </a>
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  const url = buildShareUrl();
+                  const subject = stripHtmlTags(post.title.rendered);
+                  window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(url)}`;
+                }}
+              >
+                <Mail className="mr-2 h-4 w-4" />
+                Email
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  const url = buildShareUrl();
+                  navigator.clipboard.writeText(url);
+                }}
+              >
+                <LinkIcon className="mr-2 h-4 w-4" />
+                Copier le lien
+              </Button>
+            </div>
+          </section>
 
           {/* Author Info */}
           {post._embedded?.author?.[0] && post._embedded.author[0].description && (
