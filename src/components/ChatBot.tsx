@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
+import { MessageCircle, X, Send, Loader2, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -110,11 +110,14 @@ const ChatBot = () => {
 
       {/* Fenêtre du chatbot */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-96 h-[500px] bg-background border border-border rounded-lg shadow-2xl z-50 flex flex-col">
+        <div className="fixed bottom-24 right-4 md:right-6 w-[calc(100vw-2rem)] md:w-96 max-w-md h-[500px] max-h-[calc(100vh-8rem)] bg-background border border-border rounded-lg shadow-2xl z-50 flex flex-col">
           {/* En-tête */}
           <div className="p-4 border-b border-border bg-primary/5">
-            <h3 className="font-semibold text-lg">Assistant Watoto Radio</h3>
-            <p className="text-sm text-muted-foreground">Posez-moi vos questions!</p>
+            <div className="flex items-center gap-2 mb-1">
+              <Bot className="h-5 w-5 text-primary" />
+              <h3 className="font-semibold text-base md:text-lg">ChatBot Watoto Radio</h3>
+            </div>
+            <p className="text-xs md:text-sm text-muted-foreground">Posez-moi vos questions!</p>
           </div>
 
           {/* Messages */}
@@ -126,13 +129,13 @@ const ChatBot = () => {
                   className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-[80%] rounded-lg p-3 ${
+                    className={`max-w-[85%] md:max-w-[80%] rounded-lg p-2.5 md:p-3 ${
                       message.role === 'user'
                         ? 'bg-primary text-primary-foreground'
                         : 'bg-muted'
                     }`}
                   >
-                    <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                    <p className="text-xs md:text-sm whitespace-pre-wrap leading-relaxed">{message.content}</p>
                   </div>
                 </div>
               ))}
