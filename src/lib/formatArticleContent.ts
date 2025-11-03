@@ -10,61 +10,26 @@ export function formatArticleContent(html: string): string {
   const tempDiv = document.createElement('div');
   tempDiv.innerHTML = html;
 
-  // Fonction récursive pour traiter les nœuds
-  const processNode = (node: Node): string => {
-    if (node.nodeType === Node.TEXT_NODE) {
-      const text = node.textContent?.trim() || '';
-      return text ? `<p>${text}</p>` : '';
-    }
-
-    if (node.nodeType === Node.ELEMENT_NODE) {
-      const element = node as HTMLElement;
-      const tagName = element.tagName.toLowerCase();
-
-      // Préserver les balises structurelles importantes
-      if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'blockquote', 'ul', 'ol', 'li', 'pre', 'code'].includes(tagName)) {
-        const children = Array.from(element.childNodes)
-          .map(child => {
-            if (child.nodeType === Node.TEXT_NODE) {
-              return child.textContent || '';
-            }
-            if (child.nodeType === Node.ELEMENT_NODE) {
-              const childElement = child as HTMLElement;
-              return childElement.outerHTML;
-            }
-            return '';
-          })
-          .join('');
-
-        return `<${tagName}>${children}</${tagName}>`;
+  // Nettoyer les balises vides et les espaces inutiles
+  const cleanHtml = (element: HTMLElement): void => {
+    Array.from(element.children).forEach((child) => {
+      const htmlChild = child as HTMLElement;
+      
+      // Supprimer les éléments vides (sauf img, br, hr)
+      if (!['IMG', 'BR', 'HR'].includes(htmlChild.tagName) && 
+          !htmlChild.textContent?.trim() && 
+          htmlChild.children.length === 0) {
+        htmlChild.remove();
+        return;
       }
 
-      // Préserver les liens et images
-      if (tagName === 'a') {
-        return element.outerHTML;
-      }
-
-      if (tagName === 'img') {
-        return element.outerHTML;
-      }
-
-      // Pour les autres éléments, traiter récursivement les enfants
-      const children = Array.from(element.childNodes)
-        .map(child => processNode(child))
-        .filter(content => content.trim() !== '')
-        .join('\n');
-
-      return children;
-    }
-
-    return '';
+      // Récursion sur les enfants
+      cleanHtml(htmlChild);
+    });
   };
 
-  // Traiter tous les nœuds enfants
-  const formattedContent = Array.from(tempDiv.childNodes)
-    .map(node => processNode(node))
-    .filter(content => content.trim() !== '')
-    .join('\n');
+  cleanHtml(tempDiv);
 
-  return formattedContent;
+  // Retourner le HTML nettoyé en préservant la structure originale
+  return tempDiv.innerHTML;
 }
